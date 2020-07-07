@@ -1,0 +1,37 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.js"],
+      "env": {
+        "node": true
+      },
+      "extends": ["eslint:recommended"]
+    },
+    {
+      "files": ["src/**/*.+(js|jsx)"],
+      "parser": "babel-eslint",
+      "parserOptions": {
+        "sourceType": "module"
+      },
+      "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jsx-a11y/recommended"],
+      "env": {
+        "browser": true
+      },
+      "globals": {
+        "process": "readonly"
+      },
+      "rules": {
+        "react/prop-types": 0,
+        "jsx-a11y/click-events-have-key-events": 0
+      }
+    }
+  ]
+}
